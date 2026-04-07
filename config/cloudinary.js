@@ -58,11 +58,20 @@ const PopupStorage = new CloudinaryStorage({
   },
 });
 
+const ResumeStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "career_resume",
+    resource_type: "raw", // ✅ important for pdf/doc
+    allowed_formats: ["pdf", "doc", "docx"],
+  },
+});
 module.exports = {
   cloudinary,
   bannerStorage,
   academicStorage,
   EventStorage,
   CalenderStorage,
-  PopupStorage
+  PopupStorage,
+  ResumeStorage
 };
