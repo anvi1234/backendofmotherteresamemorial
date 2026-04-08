@@ -8,7 +8,7 @@ const updateAcademic = multer({ storage: academicStorage });
 const academicController = require("../controller/academic.controller");
 
 // Create
-router.post("/", updateAcademic.single("image"), academicController.createAcademic);
+router.post("/", updateAcademic.array("files"), academicController.createAcademic);
 
 // Get All
 router.get("/", academicController.getAcademics);
@@ -20,6 +20,7 @@ router.get("/:id", academicController.getAcademicById);
 
 
 // Delete
+router.delete("/:id/media/:mediaId",academicController.deleteMedia)
 router.delete("/:id", academicController.deleteAcademic);
 
 module.exports = router;
